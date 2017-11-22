@@ -9,7 +9,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://paweueck.github.io/adam-blog" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Author settings
-author: Pawel Marciniak # add your name
+author: FIMUKO # add your name
 author-pic: adam-face.jpg
 about-author: My name is Pawel Marciniak. I am passionate about data analytics and knowledge discovery. I have 10+ years of professional experience in large multinational organizations.
 
