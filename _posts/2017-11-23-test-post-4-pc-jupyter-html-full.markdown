@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Test post 3 created on PC with jupyter convert to basic html via liquid
+title: Test post 4 created on PC with jupyter convert to full html via liquid
 date: 2017-11-23 13:32:20 +0300
 description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. # Add post description (optional)
 img: post-6.jpg # Add image post (optional)
@@ -23,7 +23,7 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-{% include Week5_matplotlib-s.html %}
+{% include jupyter_post4.html %}
 
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
