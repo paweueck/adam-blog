@@ -5,94 +5,28 @@ date:   2017-11-27 13:32:20 +0300
 description: This post describes the steps required behind uploading jupyter notebook to my blog. # Add post description (optional)
 img: post-1.jpg # Add image post (optional)
 tags: [Blog]
-author: # Add name author (optional)
+author: Pawel Marciniak # Add name author (optional)
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Just a few words about what's required to convert jupyter notebook into the blog entry on my platform (jekyll templates hosted on github).
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+0. Play with data and create a jupyter notebook (using Anaconda Jupyter).
 
-Jekyll also offers powerful support for code snippets:
+1. Once the notebook is created, go to bash / terminal / powershell and use the nbconvert tool to convert your jupyter notebook into something which can be uploaded as a post content to our website / blog. This is a command that you need to use:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> ruby.
-{% endhighlight %}
-
-{% highlight python %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> python.
-{% endhighlight %}
-
-{% highlight rusthon %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> rusthon.
-{% endhighlight %}
-
-{% highlight pycon %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> pycon.
-{% endhighlight %}
-
-Now a different notation:
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
 ```
-
-```ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> ruby.
-```
-
-```python
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> python.
-```
-
-```rusthon
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> rusthon
-```
-
-```pycon
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=>pycon
-```
-
-```Shell
 $ jupyter nbconvert --to html --template basic notebook.ipynb
 ```
+\* Note that if you don't have the `nbconvert` utility installed on your machine you need to install it first. See more information about this tool [here][nbconvert].
+\* Also note that I experimented with number of output formats from the `nbconvert` utility, and for the jekyll templates I use, the `html basic` output works best.
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+2. Once you converted your jupyter notebook to html basic format, you need to remove the `??? heading` indicators as they are not comming across very well. After you are done, save the file in the `_include` folder in your github blog repository.
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+3. After that create a new generic post in the `_post` directory in your github blog repository, using the generic post template of your theme. After the front matter in your post, include the following piece of code, referencing your post to the respective html file in the `_include` directory (which was converted from your jupyter notebook):
+
+```
+{% include notebook.html %}
+```
+
+Voila! You can save everything now and push the changes to your github blog repository. In a few moments your updated site should be published.
+
+[nbconvert]: http://nbconvert.readthedocs.io/en/latest/usage.html#convert-html
