@@ -23,9 +23,9 @@ $ jupyter nbconvert --to html --template basic notebook.ipynb
 
 3. After that create a new generic post in the `_post` directory in your github blog repository, using the generic post template of your theme. After the front matter in your post, include the following piece of code, referencing your post to the respective html file in the `_include` directory (which was converted from your jupyter notebook):
 
-{% highlight liquid %}
+```
 {% include notebook.html %}
-{% endhighlight %}
+```
 
 Voila! You can save everything now and push the changes to your github blog repository. In a few moments your updated site should be published.
 
