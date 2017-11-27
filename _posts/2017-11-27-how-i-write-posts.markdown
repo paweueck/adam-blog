@@ -14,7 +14,7 @@ Just a few words about what's required to convert jupyter notebook into the blog
 
 1. Once the notebook is created, go to bash / terminal / powershell and use the nbconvert tool to convert your jupyter notebook into something which can be uploaded as a post content to our website / blog. This is a command that you need to use:
 
-```shell
+```
 $ jupyter nbconvert --to html --template basic notebook.ipynb
 ```
 \* Note that if you don't have the `nbconvert` utility installed on your machine you need to install it first. See more information about this tool [here][nbconvert].
@@ -28,7 +28,9 @@ $ jupyter nbconvert --to html --template basic notebook.ipynb
 3. After that create a new generic post in the `_post` directory in your github blog repository, using the generic post template of your theme. After the front matter in your post, include the following piece of code, referencing your post to the respective html file in the `_include` directory (which was converted from your jupyter notebook):
 
 {% raw %}
+```
 {% include notebook.html %}
+```
 {% endraw %}
 
 
